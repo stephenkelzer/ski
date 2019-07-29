@@ -45,4 +45,9 @@ export class Canvas {
 
         this.ctx.drawImage(image, x, y, width, height);
     }
+
+    drawText(text, fontSize, x, y) {
+        this.ctx.font = `${fontSize}px Arial`;
+        this.ctx.fillText(text, x, y);
+    }
 }

@@ -4,6 +4,7 @@ import { Canvas } from './Canvas';
 import { Skier } from "../Entities/Skier";
 import { ObstacleManager } from "../Entities/Obstacles/ObstacleManager";
 import { Rect } from './Utils';
+import { ScoreManager } from "./ScoreManager";
 
 export class Game {
     gameWindow = null;
@@ -13,6 +14,7 @@ export class Game {
         this.canvas = new Canvas(Constants.GAME_WIDTH, Constants.GAME_HEIGHT);
         this.skier = new Skier(0, 0);
         this.obstacleManager = new ObstacleManager();
+        this.scoreManager = new ScoreManager();
 
         document.addEventListener('keydown', this.handleKeyDown.bind(this));
     }
@@ -42,12 +44,14 @@ export class Game {
 
         this.obstacleManager.placeNewObstacle(this.gameWindow, previousGameWindow);
 
+        this.scoreManager.calculateScore(this.skier);
+        
         this.skier.checkIfSkierHitObstacle(this.obstacleManager, this.assetManager);
     }
 
     drawGameWindow() {
         this.canvas.setDrawOffset(this.gameWindow.left, this.gameWindow.top);
-
+        this.scoreManager.drawScore(this.canvas);
         this.skier.draw(this.canvas, this.assetManager);
         this.obstacleManager.drawObstacles(this.canvas, this.assetManager);
     }
