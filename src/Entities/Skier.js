@@ -66,7 +66,7 @@ export class Skier extends Entity {
             this.moveSkierLeft();
         }
         else {
-            this.setDirection(this.direction - 1);
+            this.setDirection(Constants.SKIER_DIRECTIONS.LEFT_DOWN);
         }
     }
 
@@ -75,7 +75,7 @@ export class Skier extends Entity {
             this.moveSkierRight();
         }
         else {
-            this.setDirection(this.direction + 1);
+            this.setDirection(Constants.SKIER_DIRECTIONS.RIGHT_DOWN);
         }
     }
 
