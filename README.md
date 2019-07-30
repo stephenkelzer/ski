@@ -1,3 +1,10 @@
+# Thank you
+Thank you for taking the time to let me submit this code audition. I have to admit, this has been the most entertaining code challenge that I have been asked to complete - kudos! 
+
+
+---
+
+
 # Ceros Ski Code Challenge
 
 Welcome to the Ceros Code Challenge - Ski Edition!
@@ -19,7 +26,7 @@ unclear, don't hesitate to reach out.
 
 **Requirements**
 
-* **Fix a bug:**
+* ~~**Fix a bug:**~~
 
   There is a bug in the game. Well, at least one bug that we know of. Use the following bug report to debug the code
   and fix it.
@@ -30,7 +37,7 @@ unclear, don't hesitate to reach out.
   * Expected Result: The skier gets up and is facing to the left
   * Actual Result: Giant blizzard occurs causing the screen to turn completely white (or maybe the game just crashes!)
   
-* **Write unit tests:**
+* ~~**Write unit tests:**~~
 
   The base code has Jest, a unit testing framework, installed. Write some unit tests to ensure that the above mentioned
   bug does not come back.
@@ -55,12 +62,12 @@ unclear, don't hesitate to reach out.
     we've provided to animate the rhino.
   * If the rhino catches the skier, it's game over and the rhino should eat the skier. 
 
-* **Documentation:**
+* ~~**Documentation:**~~
 
   * Update this README file with your comments about your work; what was done, what wasn't, features added & known bugs.
   * Provide a way for us to view the completed code and run it, either locally or through a cloud provider
   
-* **Be original:**  
+* ~~**Be original:**  ~~
   * This should go without saying but don’t copy someone else’s game implementation!
 
 **Grading** 
@@ -83,11 +90,11 @@ code before taking on any of the bonus.*
 If you're having fun with this, feel free to add more to it. Here's some ideas or come up with your own. We love seeing 
 how creative candidates get with this.
  
-* Provide a way to reset the game once it's over
-* Provide a way to pause and resume the game
-* Add a score that increments as the skier skis further
+* ~~Provide a way to reset the game once it's over~~
+* ~~Provide a way to pause and resume the game~~
+* ~~Add a score that increments as the skier skis further~~
 * Increase the difficulty the longer the skier skis (increase speed, increase obstacle frequency, etc.)
 * Deploy the game to a server so that we can play it without having to install it locally
-* Write more unit tests for your code
+* ~~Write more unit tests for your code~~
 
 We are looking forward to see what you come up with!
