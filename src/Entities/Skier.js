@@ -124,6 +124,7 @@ export class Skier extends Entity {
     }
 
     turnDown() {
+        console.log('TURN DOWN FOR WHAT!?');
         this.setDirection(Constants.SKIER_DIRECTIONS.DOWN);
     }
 
