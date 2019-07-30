@@ -122,6 +122,10 @@ export class Game {
                 this.skier.turnDown();
                 event.preventDefault();
                 break;
+            case Constants.KEYS.SPACE:
+                this.skier.jump();
+                event.preventDefault();
+                break;
             case Constants.KEYS.P:
                 if (this.isGameOver) {
                     location.reload();
@@ -129,7 +133,7 @@ export class Game {
                     this.skier.stop();
                     this.isPaused = !this.isPaused;
                 }
-                    event.preventDefault();
+                event.preventDefault();
                 break;
         }
     }

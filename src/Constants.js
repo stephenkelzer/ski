@@ -2,6 +2,7 @@ export const GAME_WIDTH = window.innerWidth;
 export const GAME_HEIGHT = window.innerHeight;
 
 export const SKIER_CRASH = 'skierCrash';
+export const SKIER_JUMP = 'skierJump';
 export const SKIER_LEFT = 'skierLeft';
 export const SKIER_LEFTDOWN = 'skierLeftDown';
 export const SKIER_DOWN = 'skierDown';
@@ -11,12 +12,16 @@ export const TREE = 'tree';
 export const TREE_CLUSTER = 'treeCluster';
 export const ROCK1 = 'rock1';
 export const ROCK2 = 'rock2';
+export const JUMP = 'jump';
 
 export const SKIER_STARTING_SPEED = 10;
 export const SKIER_DIAGONAL_SPEED_REDUCER = 1.4142;
+export const SKIER_JUMPING_SPEED_REDUCER = 2;
+export const SKIER_EXPECTED_JUMP_HANGTIME = 30;
 
 export const ASSETS = {
     [SKIER_CRASH]: 'img/skier_crash.png',
+    [SKIER_JUMP]: 'img/skier_jump_1.png',
     [SKIER_LEFT]: 'img/skier_left.png',
     [SKIER_LEFTDOWN]: 'img/skier_left_down.png',
     [SKIER_DOWN]: 'img/skier_down.png',
@@ -25,7 +30,8 @@ export const ASSETS = {
     [TREE] : 'img/tree_1.png',
     [TREE_CLUSTER] : 'img/tree_cluster.png',
     [ROCK1] : 'img/rock_1.png',
-    [ROCK2] : 'img/rock_2.png'
+    [ROCK2] : 'img/rock_2.png',
+    [JUMP] : 'img/jump_ramp.png'
 };
 
 export const SKIER_DIRECTIONS = {
@@ -34,7 +40,8 @@ export const SKIER_DIRECTIONS = {
     LEFT_DOWN : 2,
     DOWN : 3,
     RIGHT_DOWN : 4,
-    RIGHT : 5
+    RIGHT : 5,
+    JUMPING : 6
 };
 
 export const SKIER_DIRECTION_ASSET = {
@@ -43,7 +50,8 @@ export const SKIER_DIRECTION_ASSET = {
     [SKIER_DIRECTIONS.LEFT_DOWN] : SKIER_LEFTDOWN,
     [SKIER_DIRECTIONS.DOWN] : SKIER_DOWN,
     [SKIER_DIRECTIONS.RIGHT_DOWN] : SKIER_RIGHTDOWN,
-    [SKIER_DIRECTIONS.RIGHT] : SKIER_RIGHT
+    [SKIER_DIRECTIONS.RIGHT] : SKIER_RIGHT,
+    [SKIER_DIRECTIONS.JUMPING] : SKIER_JUMP
 };
 
 export const KEYS = {
@@ -51,5 +59,6 @@ export const KEYS = {
     RIGHT : 39,
     UP : 38,
     DOWN : 40,
-    P: 80
+    P: 80,
+    SPACE: 32
 };
