@@ -42,7 +42,7 @@ unclear, don't hesitate to reach out.
   The base code has Jest, a unit testing framework, installed. Write some unit tests to ensure that the above mentioned
   bug does not come back.
   
-* **Extend existing functionality:**
+* ~~**Extend existing functionality:**~~
 
   We want to see your ability to extend upon a part of the game that already exists. Add in the ability for the skier to 
   jump. The asset file for jumps is already included. All you gotta do is make the guy jump. We even included some jump 
