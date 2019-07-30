@@ -26,4 +26,4 @@ steps:
     Contents: |
       dist/**
       img/**
-    TargetFolder: '/output'
+    TargetFolder: '$(System.DefaultWorkingDirectory)/output'
