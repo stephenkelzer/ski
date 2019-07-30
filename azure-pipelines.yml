@@ -20,3 +20,10 @@ steps:
     npm install
     npx webpack --config webpack.config.js
   displayName: 'npm install, run webpack'
+  
+- task: CopyFiles@2
+  inputs:
+    Contents: |
+      dist/**
+      img/**
+    TargetFolder: '/output'
