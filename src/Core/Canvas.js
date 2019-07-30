@@ -47,6 +47,15 @@ export class Canvas {
     }
 
     drawText(text, fontSize, x, y) {
+        this.addText(text, fontSize, x, y, 'start');
+    }
+
+    drawCenteredText(text, fontSize, x, y) {
+        this.addText(text, fontSize, x, y, 'center');
+    }
+
+    addText(text, fontSize, x, y, alignment) {
+        this.ctx.textAlign = alignment;
         this.ctx.font = `${fontSize}px Arial`;
         this.ctx.fillText(text, x, y);
     }

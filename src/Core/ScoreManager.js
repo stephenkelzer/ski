@@ -7,7 +7,8 @@ export class ScoreManager {
     }
 
     calculateScore(skier) {
-        this.score = Math.floor(skier.y / this.SCORE_MODIFIER);
+        const score = Math.floor(skier.y / this.SCORE_MODIFIER)
+        this.score = score > 0 ? score : 0;
     }
 
     drawScore(canvas) {

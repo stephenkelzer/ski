@@ -58,7 +58,10 @@ export class Skier extends Entity {
     }
 
     moveSkierUp() {
-        this.y -= Constants.SKIER_STARTING_SPEED;
+        // we can't go higher than the hill!
+        if (this.y > 0) {
+            this.y -= Constants.SKIER_STARTING_SPEED;
+        }
     }
 
     turnLeft() {
@@ -113,6 +116,11 @@ export class Skier extends Entity {
                 this.setDirection(Constants.SKIER_DIRECTIONS.LEFT);
                 break;
         }
+    }
+
+    stop() {
+        // skid stop!
+        this.setDirection(Constants.SKIER_DIRECTIONS.LEFT);
     }
 
     turnDown() {
