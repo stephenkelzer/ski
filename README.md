@@ -23,6 +23,12 @@ I believe that I have checked off all of the requirements AND all of the bonus r
 - I would like to convert the 'difficulty logic' to some sort of `DifficultyManager`
 - I would like to get a lot higher test coverage
 - I would like to create a high score tracker
+- Adding an instructions (how to play) window
+- Ability to use your mouse to steer (maybe click for mobile?)
+
+### Known issues
+- There is one issue that I know about.
+   - Sometimes you will get a nullReferenceException on startup. I **think** this has to do with async image loading, but I haven't done a deep dive into resolving it yet. Only seems to pop up when you repetatively hit refresh.
 
 Thanks again for letting me attempt this, it's been a blast!
 
