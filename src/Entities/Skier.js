@@ -8,6 +8,7 @@ export class Skier extends Entity {
 
         this.assetName = Constants.SKIER_LEFT;
         this.direction = Constants.SKIER_DIRECTIONS.LEFT;
+        this.distanceTravelled = 0;
         this.speed = Constants.SKIER_STARTING_SPEED;
         this.jumpCount = 0;
     }
@@ -50,16 +51,19 @@ export class Skier extends Entity {
     moveSkierLeftDown() {
         this.x -= this.speed / Constants.SKIER_DIAGONAL_SPEED_REDUCER;
         this.y += this.speed / Constants.SKIER_DIAGONAL_SPEED_REDUCER;
+        this.incrementDistanceTravelled();
     }
 
     moveSkierDown() {
         const isJumping = this.isJumping();
         this.y += isJumping ? this.speed / Constants.SKIER_JUMPING_SPEED_REDUCER : this.speed;
+        this.incrementDistanceTravelled();
     }
 
     moveSkierRightDown() {
         this.x += this.speed / Constants.SKIER_DIAGONAL_SPEED_REDUCER;
         this.y += this.speed / Constants.SKIER_DIAGONAL_SPEED_REDUCER;
+        this.incrementDistanceTravelled();
     }
 
     moveSkierRight() {
@@ -70,6 +74,13 @@ export class Skier extends Entity {
         // we can't go higher than the hill!
         if (this.y > 0) {
             this.y -= Constants.SKIER_STARTING_SPEED;
+        }
+    }
+
+    incrementDistanceTravelled() {
+        const distanceAtNow = this.y / Constants.SKIER_STARTING_SPEED
+        if (this.distanceTravelled < distanceAtNow) {
+            this.distanceTravelled = Math.floor(distanceAtNow)
         }
     }
 

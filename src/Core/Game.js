@@ -73,6 +73,7 @@ export class Game {
     drawGameWindow() {
         this.canvas.setDrawOffset(this.gameWindow.left, this.gameWindow.top);
         this.canvas.drawText(`Score: ${this.scoreManager.getScore()}`, 25, 10, 50);
+        this.canvas.drawText(`Distance Travelled: ${this.skier.distanceTravelled} ft`, 12, 10, 70);
         this.skier.draw(this.canvas, this.assetManager);
         this.obstacleManager.drawObstacles(this.canvas, this.assetManager);
         this.rhinoManager.drawRhinos(this.canvas, this.assetManager);
