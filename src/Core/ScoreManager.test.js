@@ -18,18 +18,30 @@ beforeEach(() => {
 });
 
 test('Score starts at 0', () => {
-    mockScoreManager.calculateScore(mockGame.skier);
-    expect(mockScoreManager.score).toBe(0);
+    expect(mockScoreManager.getScore()).toBe(0);
 });
 
 test('Score increments', () => {
+    expect(mockScoreManager.getScore()).toBe(0);
     mockGame.skier.moveSkierDown();
-    mockScoreManager.calculateScore(mockGame.skier);
-    expect(mockScoreManager.score).toBe(1);
+    mockScoreManager.updateDescentScore(mockGame.skier);
+    expect(mockScoreManager.getScore()).toBe(100);
 });
 
 test('Score cant be negative', () => {
     mockGame.skier.moveSkierUp();
-    mockScoreManager.calculateScore(mockGame.skier);
-    expect(mockScoreManager.score).toBe(0);
+    mockScoreManager.updateDescentScore(mockGame.skier);
+    expect(mockScoreManager.getScore()).toBe(0);
 });
+
+test('Score increments after jumping over obstacle', () => {
+    expect(mockScoreManager.getScore()).toBe(0);
+    mockScoreManager.logObstacleJumpedOver();
+    expect(mockScoreManager.getScore()).toBe(1100);
+});
+
+test('Score increments after jumping over rhino', () => {
+    expect(mockScoreManager.getScore()).toBe(0);
+    mockScoreManager.logRhinoJumpedOver();
+    expect(mockScoreManager.getScore()).toBe(1000000);
+})

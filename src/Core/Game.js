@@ -5,6 +5,8 @@ import { Skier } from "../Entities/Skier";
 import { ObstacleManager } from "../Entities/Obstacles/ObstacleManager";
 import { Rect } from './Utils';
 import { ScoreManager } from "./ScoreManager";
+import { RhinoManager } from "../Entities/Rhinos/RhinoManager";
+import { CollisionManager } from "./CollisionManager";
 
 export class Game {
 
@@ -16,7 +18,9 @@ export class Game {
         this.canvas = new Canvas(Constants.GAME_WIDTH, Constants.GAME_HEIGHT);
         this.skier = new Skier(0, 0);
         this.obstacleManager = new ObstacleManager();
+        this.rhinoManager = new RhinoManager();
         this.scoreManager = new ScoreManager();
+        this.collisionManager = new CollisionManager();
 
         document.addEventListener('keydown', this.handleKeyDown.bind(this));
     }
@@ -47,31 +51,36 @@ export class Game {
 
     updateGameWindow() {
         this.skier.move();
+        this.scoreManager.updateDescentScore(this.skier);
+
+        this.rhinoManager.moveRhinos(this.gameWindow);
 
         const previousGameWindow = this.gameWindow;
         this.calculateGameWindow();
 
         this.obstacleManager.placeNewObstacle(this.gameWindow, previousGameWindow);
+        this.rhinoManager.spawnRhino(this.gameWindow, this.skier);
 
-        this.scoreManager.calculateScore(this.skier);
-        
-        this.skier.checkIfSkierHitObstacle(this.obstacleManager, this.assetManager);
+        this.collisionManager.checkIfSkierBailedOnAnObstacle(this.skier, this.obstacleManager, this.assetManager, this.scoreManager);
 
-        if (this.skier.isCrashed()) {
+        if (this.collisionManager.checkIfRhinoCaughtSkier(this.skier, this.rhinoManager, this.assetManager, this.scoreManager)) {
             this.isGameOver = true;
         }
+
+        this.rhinoManager.turnOnTheFun(this.skier, this.isGameOver || this.isPaused);
     }
 
     drawGameWindow() {
         this.canvas.setDrawOffset(this.gameWindow.left, this.gameWindow.top);
-        this.scoreManager.drawScore(this.canvas);
+        this.canvas.drawText(`Score: ${this.scoreManager.getScore()}`, 25, 10, 50);
         this.skier.draw(this.canvas, this.assetManager);
         this.obstacleManager.drawObstacles(this.canvas, this.assetManager);
+        this.rhinoManager.drawRhinos(this.canvas, this.assetManager);
     }
 
     drawPauseMenu() {
         this.canvas.setDrawOffset(this.gameWindow.left, this.gameWindow.top);
-        this.scoreManager.drawScore(this.canvas);
+        this.canvas.drawText(`Score: ${this.scoreManager.getScore()}`, 25, 10, 50);
 
         const middleX = Constants.GAME_WIDTH / 2;
         const middleY = Constants.GAME_HEIGHT / 2;
@@ -85,7 +94,7 @@ export class Game {
         const middleX = Constants.GAME_WIDTH / 2;
         const middleY = Constants.GAME_HEIGHT / 2;
 
-        this.canvas.drawCenteredText(`Final Score: ${this.scoreManager.score}`, 18, middleX, middleY - 150);
+        this.canvas.drawCenteredText(`Final Score: ${this.scoreManager.getScore()}`, 18, middleX, middleY - 150);
         this.canvas.drawCenteredText("GAME OVER!", 40, middleX, middleY - 50);
         this.canvas.drawCenteredText("Press 'P' to shred some more gnar", 18, middleX, middleY);
     }
@@ -105,7 +114,7 @@ export class Game {
             return;
         }
 
-        switch(event.which) {
+        switch (event.which) {
             case Constants.KEYS.LEFT:
                 this.skier.turnLeft();
                 event.preventDefault();
