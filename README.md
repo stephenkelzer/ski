@@ -1,5 +1,30 @@
-# Thank you
-Thank you for taking the time to let me submit this code audition. I have to admit, this has been the most entertaining code challenge that I have been asked to complete - kudos! 
+## Thank you
+Thank you for taking the time to let me submit this code audition. I have to admit, this has easily been the most entertaining code challenge that I have been asked to complete - kudos! 
+
+I believe that I have checked off all of the requirements AND all of the bonus request. As far as adding my own touch, you may notice that I don't believe one Rhino is enough. If you can get past a `distance travelled` of 3000 ft in my game, I'll happily work my first week with Ceros for free!*
+
+**You can find the app here:** [http://ski.stephenkelzer.com/](http://ski.stephenkelzer.com/)
+
+## Here is how things work:
+- At any time you can pause the game by pressing 'P'
+- You can press 'SPACEBAR' to jump
+- You will notice statistics in the top left of the screen
+- Jumping over an object boosts your score
+- If you can jump over a Rhino, your score will soar!!
+- If you get caught by a Rhino --> GAME OVER!
+   - Press 'P' to start over
+- (level 1) After 250ft, you will start to see Rhinos and obstacles will get more dense
+- (level 2) After 750ft you will see more Rhinos and even more density in the obstacles
+- (level 3) After 1250ft, you guessed it..  more and more of all the things!
+- (level 4) You die, I certainly can't get past level 4 at least...
+- (level 5) If you make it here, you're not human.
+
+### Things I would like to work on more:
+- I would like to convert the 'difficulty logic' to some sort of `DifficultyManager`
+- I would like to get a lot higher test coverage
+- I would like to create a high score tracker
+
+Thanks again for letting me attempt this, it's been a blast!
 
 
 ---
@@ -53,7 +78,7 @@ unclear, don't hesitate to reach out.
     * Trees can NOT be jumped over
   * Anything else you'd like to add to the skier's jumping ability, go for it!
    
-* **Build something new:**
+* ~~**Build something new:**~~
 
   Now it's time to add something completely new. In the original Ski Free game, if you skied for too long, 
   a yeti would chase you down and eat you. In Ceros Ski, we've provided assets for a Rhino to run after the skier, 
@@ -93,8 +118,13 @@ how creative candidates get with this.
 * ~~Provide a way to reset the game once it's over~~
 * ~~Provide a way to pause and resume the game~~
 * ~~Add a score that increments as the skier skis further~~
-* Increase the difficulty the longer the skier skis (increase speed, increase obstacle frequency, etc.)
-* Deploy the game to a server so that we can play it without having to install it locally
+* ~~Increase the difficulty the longer the skier skis (increase speed, increase obstacle frequency, etc.)~~
+* ~~Deploy the game to a server so that we can play it without having to install it locally~~
 * ~~Write more unit tests for your code~~
 
 We are looking forward to see what you come up with!
+
+
+
+
+\* No I won't, I lied. that's ridiculous!
