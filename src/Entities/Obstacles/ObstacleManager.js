@@ -5,12 +5,13 @@ import { Obstacle } from "./Obstacle";
 const DISTANCE_BETWEEN_OBSTACLES = 50;
 const STARTING_OBSTACLE_GAP = 100;
 const STARTING_OBSTACLE_REDUCER = 300;
-const NEW_OBSTACLE_CHANCE = 8;
+const NEW_OBSTACLE_CHANCE = 12;
 
 export class ObstacleManager {
     obstacles = [];
 
     constructor() {
+        this.newObstacleChance = NEW_OBSTACLE_CHANCE;
     }
 
     getObstacles() {
@@ -41,8 +42,8 @@ export class ObstacleManager {
     }
 
     placeNewObstacle(gameWindow, previousGameWindow) {
-        const shouldPlaceObstacle = randomInt(1, NEW_OBSTACLE_CHANCE);
-        if(shouldPlaceObstacle !== NEW_OBSTACLE_CHANCE) {
+        const shouldPlaceObstacle = randomInt(1, this.newObstacleChance);
+        if(shouldPlaceObstacle !== this.newObstacleChance) {
             return;
         }
 

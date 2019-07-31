@@ -22,6 +22,7 @@ beforeEach(() => {
     mockGame.skier.getCollisionBounds = jest.fn((asetManager) => { return new Rect(0, 0, 10, 10) });
 
     let obstacle = new Obstacle(5, 5)
+    obstacle.assetName = Constants.TREE;
     obstacle.getCollisionBounds = jest.fn((asetManager) => { return new Rect(0, 0, 10, 10) });
     mockGame.obstacleManager.obstacles.push(obstacle);
 

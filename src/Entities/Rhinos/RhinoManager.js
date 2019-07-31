@@ -3,25 +3,17 @@ import { randomInt } from '../../Core/Utils';
 
 export class RhinoManager {
 
-    SKIER_DESCENT_TO_ACTIVATE = 10000
     RHINO_INSERT_WINDOW_BUFFER = 20
-    NEW_RHINO_CHANCE = 50;
+    INITIAL_NEW_RHINO_CHANCE = 50;
 
     constructor() {
         this.active = false;
         this.rhinos = [];
+        this.newRhinoChance = this.INITIAL_NEW_RHINO_CHANCE;
     }
 
     getRhinos() {
         return this.rhinos;
-    }
-
-    turnOnTheFun(skier, forcePartyPooping) {
-        if (forcePartyPooping) {
-            this.active = false
-        } else if (!this.active && skier.y > this.SKIER_DESCENT_TO_ACTIVATE) {
-            this.active = true;
-        }
     }
 
     drawRhinos(canvas, assetManager) {
@@ -32,8 +24,8 @@ export class RhinoManager {
 
     spawnRhino(gameWindow, skier) {
         if (this.active) {
-            const shouldSpawnNewRhino = randomInt(1, this.NEW_RHINO_CHANCE);
-            if (shouldSpawnNewRhino === this.NEW_RHINO_CHANCE) {
+            const shouldSpawnNewRhino = randomInt(1, this.newRhinoChance);
+            if (shouldSpawnNewRhino === this.newRhinoChance) {
                 const spawnY = randomInt(skier.y, gameWindow.bottom);
                 this.rhinos.push(new Rhino((gameWindow.right + this.RHINO_INSERT_WINDOW_BUFFER), spawnY));
             }
