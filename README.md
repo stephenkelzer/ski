@@ -25,6 +25,7 @@ I believe that I have checked off all of the requirements AND all of the bonus r
 - I would like to create a high score tracker
 - Adding an instructions (how to play) window
 - Ability to use your mouse to steer (maybe click for mobile?)
+- I realized that if you 'keep going left', you can make it pretty far.. I should mirror the Rhino image and insert some Rhinos from the left side of the screen so they come at you from both sides!
 
 ### Known issues
 - There is one issue that I know about.
