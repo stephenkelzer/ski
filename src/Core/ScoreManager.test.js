@@ -37,7 +37,7 @@ test('Score cant be negative', () => {
 test('Score increments after jumping over obstacle', () => {
     expect(mockScoreManager.getScore()).toBe(0);
     mockScoreManager.logObstacleJumpedOver();
-    expect(mockScoreManager.getScore()).toBe(1100);
+    expect(mockScoreManager.getScore()).toBe(1000);
 });
 
 test('Score increments after jumping over rhino', () => {

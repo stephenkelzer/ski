@@ -162,9 +162,11 @@ export class Game {
         if (distance > 2000) {
             this.level = 5;
             this.rhinoManager.newRhinoChance = 1;
+            this.obstacleManager.newObstacleChance = 1;
         } else if (distance > 1500) {
             this.level = 4;
             this.rhinoManager.newRhinoChance = 5;
+            this.obstacleManager.newObstacleChance = 3;
         } else if (distance > 1250) {
             this.level = 3;
             this.rhinoManager.newRhinoChance = 10;

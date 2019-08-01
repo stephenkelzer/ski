@@ -19,6 +19,11 @@ I believe that I have checked off all of the requirements AND all of the bonus r
 - (level 4) You die, I certainly can't get past level 4 at least...
 - (level 5) If you make it here, you're not human.
 
+### Scoring
+- 10 points per foot descended down the hill
+- 1000 for each rock jumped over
+- 100000 for each Rhino leaped over!
+
 ### Things I would like to work on more:
 - I would like to convert the 'difficulty logic' to some sort of `DifficultyManager`
 - I would like to get a lot higher test coverage
